@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#26374d">
+  <title>Self-Adaptive Traffic Signal Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Self-Adaptive Traffic Signal Network home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 2h6a2 2 0 0 1 2 2v1h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1v1a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-1H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1V4a2 2 0 0 1 2-2Zm0 3h6V4H9v1Zm0 14v1h6v-1H9Zm-2-3h10V8H7v8Zm5-7a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>
+        </span>
+        <span>Self-Adaptive Traffic Signal Network</span>
+      </a>
+      <div class="topbar-meta">
+        <span id="current-date">Apr 26, 2025</span>
+        <span class="meta-divider"></span>
+        <span id="current-time">10:24 AM</span>
+        <span class="meta-divider"></span>
+        <span class="online-indicator"><i></i><span id="system-status">System Online</span></span>
+      </div>
+      <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="app-body">
+      <aside class="sidebar" id="sidebar">
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-item active" data-view="dashboard">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10Z"/></svg><span>Dashboard</span>
+          </button>
+          <button class="nav-item" data-view="junctions">
+            <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3c0 1 .5 1.9 1.3 2.4A3 3 0 0 0 9 13c-1.3.5-2 1.5-2 3a3 3 0 0 0 2 2.8V21h6v-2.2a3 3 0 0 0 2-2.8c0-1.5-.7-2.5-2-3a3 3 0 0 0-1.3-5.6A3 3 0 0 0 12 2Zm0 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm0 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm0 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg><span>Junctions</span>
+          </button>
+          <button class="nav-item" data-view="traffic">
+            <svg viewBox="0 0 24 24"><path d="M3 13h5v8H3zm7-5h5v13h-5zm7-6h5v19h-5z"/></svg><span>Traffic Data</span>
+          </button>
+          <button class="nav-item" data-view="settings">
+            <svg viewBox="0 0 24 24"><path d="m19.4 13 .1-1-.1-1 2-1.6-2-3.5-2.4 1a8 8 0 0 0-1.7-1L15 3h-4l-.4 2.9a8 8 0 0 0-1.7 1l-2.4-1-2 3.5 2 1.6-.1 1 .1 1-2 1.6 2 3.5 2.4-1a8 8 0 0 0 1.7 1L11 21h4l.4-2.9a8 8 0 0 0 1.7-1l2.4 1 2-3.5-2.1-1.6ZM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" transform="translate(-1)"/></svg><span>Settings</span>
+          </button>
+        </nav>
+        <div class="sidebar-profile">
+          <span class="profile-avatar">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5Z"/></svg>
+          </span>
+          <span><strong>Admin</strong><small>Traffic Control System</small></span>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="view-panel is-active" id="view-dashboard">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow">INTELLIGENT TRAFFIC MANAGEMENT</p>
+              <h1>Welcome Back!</h1>
+              <p class="welcome-copy">Here's the current status of the traffic network.</p>
+            </div>
+            <div class="header-actions">
+              <button class="button button-soft" id="simulation-toggle" type="button">
+                <span class="button-dot"></span><span>Start Simulation</span>
+              </button>
+              <button class="button button-primary" id="add-junction-open" type="button">
+                <span class="plus-icon">+</span> Add Junction
+              </button>
+              <button class="icon-button" id="reset-system" type="button" title="Reset system" aria-label="Reset system">
+                <svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3L3 5v6h6L6.5 8.5A6 6 0 1 1 6 13H4a8 8 0 1 0 16-2Z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <section class="stats-grid" aria-label="Traffic network summary">
+            <article class="stat-card stat-blue">
+              <div class="stat-icon">
+                <svg viewBox="0 0 48 48"><path d="m10 19 3-9c.6-1.8 2-3 4-3h14c2 0 3.4 1.2 4 3l3 9 3 3v13h-4v4h-6v-4H17v4h-6v-4H7V22l3-3Zm4 0h20l-2.4-7H16.4L14 19Zm-2 9a3 3 0 1 0 6 0 3 3 0 0 0-6 0Zm18 0a3 3 0 1 0 6 0 3 3 0 0 0-6 0ZM12 23v3h24v-3H12Z"/></svg>
+              </div>
+              <div class="stat-content"><span class="stat-label">Total Vehicles</span><div class="stat-value-line"><strong id="total-vehicles">452</strong><span class="trend trend-up">↑ <span id="vehicle-trend">12%</span></span></div><small>compared to last hour</small></div>
+            </article>
+            <article class="stat-card stat-red">
+              <div class="stat-icon">
+                <svg viewBox="0 0 48 48"><path d="M24 6a2 2 0 0 1 2 2v4h-4V8a2 2 0 0 1 2-2Zm-11.7 4.5 2.8 2.8-2.8 2.8-2.8-2.8 2.8-2.8Zm23.4 0 2.8 2.8-2.8 2.8-2.8-2.8 2.8-2.8ZM24 15c5.5 0 10 4.5 10 10v6h3v7H11v-7h3v-6c0-5.5 4.5-10 10-10Zm-13.5 3.5 4 1.1-1.1 3.9-4-1.1 1.1-3.9Zm27 0 1.1 3.9-4 1.1-1.1-3.9 4-1.1ZM20 25v6h8v-6a4 4 0 0 0-8 0Zm-13.5 3.5 4-.3.3 4-4 .3-.3-4Zm31 0-.3 4-4-.3.3-4 4 .3Z"/></svg>
+              </div>
+              <div class="stat-content"><span class="stat-label">Emergency Vehicles</span><div class="stat-value-line"><strong id="emergency-count">2</strong><span class="trend trend-up">↑ <span id="emergency-trend">0%</span></span></div><small>currently in network</small></div>
+            </article>
+            <article class="stat-card stat-green">
+              <div class="stat-icon">
+                <svg viewBox="0 0 48 48"><path d="M24 5a19 19 0 1 0 0 38 19 19 0 0 0 0-38Zm2 19.2 8.3 4.9-2 3.4L22 26V12h4v12.2Z"/></svg>
+              </div>
+              <div class="stat-content"><span class="stat-label">Avg. Waiting Time</span><div class="stat-value-line"><strong><span id="average-wait">32</span> <em>sec</em></strong><span class="trend trend-down">↓ 28%</span></div><small>compared to last hour</small></div>
+            </article>
+            <article class="stat-card stat-purple">
+              <div class="stat-icon signal-stat-icon">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="stat-content"><span class="stat-label">Active Junction</span><div class="stat-value-line"><strong id="active-junction">J1</strong></div><small id="active-junction-caption">Priority Junction</small></div>
+            </article>
+          </section>
+
+          <div class="dashboard-grid">
+            <section class="panel overview-panel">
+              <div class="panel-heading"><div><h2>Junction Overview</h2><p class="panel-subtitle">Live intersection status</p></div><button class="more-button" aria-label="Junction overview options">•••</button></div>
+              <div class="intersection-stage" id="intersection-stage">
+                <div class="landscape">
+                  <div class="park park-nw"><i></i><i></i><i></i></div><div class="park park-ne"><i></i><i></i><i></i></div>
+                  <div class="park park-sw"><i></i><i></i><i></i></div><div class="park park-se"><i></i><i></i><i></i></div>
+                  <div class="road road-vertical"><span class="lane-mark lane-north"></span><span class="lane-mark lane-south"></span></div>
+                  <div class="road road-horizontal"><span class="lane-mark lane-west"></span><span class="lane-mark lane-east"></span></div>
+                  <div class="road-center"></div>
+                  <div class="crosswalk crosswalk-top"></div><div class="crosswalk crosswalk-bottom"></div><div class="crosswalk crosswalk-left"></div><div class="crosswalk crosswalk-right"></div>
+                  <div class="vehicle car-north car-red car-north-first"><i></i></div><div class="vehicle car-north car-silver car-north-second"><i></i></div><div class="vehicle car-south car-blue car-south-first"><i></i></div><div class="vehicle car-south car-yellow car-south-second"><i></i></div>
+                  <div class="vehicle car-west car-blue car-west-first"><i></i></div><div class="vehicle car-west car-silver car-west-second"><i></i></div><div class="vehicle car-east car-silver car-east-first"><i></i></div><div class="vehicle car-east car-yellow car-east-second"><i></i></div>
+                  <div class="junction-label label-north" id="map-label-north"></div>
+                  <div class="junction-label label-east" id="map-label-east"></div>
+                  <div class="junction-label label-south" id="map-label-south"></div>
+                  <div class="junction-label label-west" id="map-label-west"></div>
+                </div>
+              </div>
+              <div class="overview-footer"><span><i class="legend-dot green-dot"></i> Green signal</span><span><i class="legend-dot red-dot"></i> Waiting</span><button class="text-link" data-navigate="junctions">View all junctions <span>→</span></button></div>
+            </section>
+
+            <div class="center-column">
+              <section class="panel details-panel">
+                <div class="panel-heading"><div><h2>Junction Details</h2><p class="panel-subtitle">Traffic by intersection</p></div><button class="text-link compact-link" data-navigate="junctions">View all <span>→</span></button></div>
+                <div class="table-wrap">
+                  <table><thead><tr><th>Junction</th><th>Cars</th><th>Emergency</th><th>Waiting Time</th><th>Priority</th></tr></thead><tbody id="junction-table-body"></tbody></table>
+                </div>
+              </section>
+              <section class="panel queue-panel">
+                <div class="panel-heading">
+                  <div><h2>Traffic Queue <span class="queue-junction" id="queue-junction">(J1)</span></h2><p class="panel-subtitle">First in, first out</p></div>
+                  <div class="queue-heading-actions"><span class="fifo-pill">FIFO</span><button class="text-link compact-link" data-navigate="traffic">View all <span>→</span></button></div>
+                </div>
+                <div class="queue-table-wrap"><table><thead><tr><th>Token No.</th><th>Customer Name</th><th>Waiting Time</th></tr></thead><tbody id="queue-table-body"></tbody></table></div>
+                <div class="queue-controls"><button class="button button-small button-soft" id="enqueue-vehicle">+ Enqueue vehicle</button><button class="button button-small button-outline" id="dequeue-vehicle">Serve next</button></div>
+              </section>
+            </div>
+
+            <div class="right-column">
+              <section class="panel rules-panel">
+                <div class="panel-heading"><div><h2>Priority Rules</h2><p class="panel-subtitle">Adaptive signal selection</p></div><span class="info-icon" title="Priority is recalculated whenever traffic changes">i</span></div>
+                <div class="priority-rule"><span class="rule-number priority-three">3</span><span><strong>Emergency vehicles present</strong><small>Priority 3 · Emergency</small></span></div>
+                <div class="priority-rule"><span class="rule-number priority-two">2</span><span><strong>Cars &gt; 70 and wait &gt; 40 s</strong><small>Priority 2 · High traffic</small></span></div>
+                <div class="priority-rule"><span class="rule-number priority-one">1</span><span><strong>Cars &gt; 50 or wait &gt; 30 s</strong><small>Priority 1 · Medium traffic</small></span></div>
+                <div class="priority-rule"><span class="rule-number priority-zero">0</span><span><strong>Otherwise</strong><small>Priority 0 · Low traffic</small></span></div>
+                <div class="priority-panel-footer"><button class="button button-small button-emergency" id="emergency-open"><span>✦</span> Simulate emergency</button></div>
+              </section>
+              <section class="panel activity-panel">
+                <div class="panel-heading"><div class="activity-title"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h2>Recent Activity</h2><p class="panel-subtitle">Latest system events</p></div></div><button class="more-button" aria-label="Activity options">•••</button></div>
+                <div class="activity-list" id="activity-list"></div>
+                <button class="activity-footer" data-navigate="traffic">View activity log <span>→</span></button>
+              </section>
+            </div>
+          </div>
+          <div class="system-banner" id="system-banner"><span class="banner-check">✓</span><span id="system-message">System is operating normally. Traffic signal adaptation is active.</span><button class="banner-close" id="banner-close" aria-label="Dismiss notification">×</button></div>
+          <div class="below-fold-grid">
+            <section class="panel network-panel"><div class="panel-heading"><div><h2>Traffic Network</h2><p class="panel-subtitle">Junctions as vertices · Roads as edges</p></div></div><div class="network-graph" id="network-graph"></div></section>
+            <section class="panel analytics-panel"><div class="panel-heading"><div><h2>Traffic Analytics</h2><p class="panel-subtitle">Live network metrics</p></div><span class="live-pill"><i></i> Live</span></div><div class="analytics-grid"><div class="chart-card"><h3>Vehicle density</h3><div id="density-chart" class="bar-chart"></div></div><div class="chart-card"><h3>Waiting time (sec)</h3><div id="waiting-chart" class="bar-chart waiting-chart"></div></div></div><div class="priority-distribution" id="priority-distribution"></div></section>
+          </div>
+          <section class="panel learn-panel"><div class="panel-heading"><div><h2>How the system works</h2><p class="panel-subtitle">Data structures powering adaptive traffic control</p></div></div><div class="flow-steps"><div><span>01</span><strong>Traffic sensors</strong><small>Collect live data</small></div><i>→</i><div><span>02</span><strong>Vehicle queues</strong><small>FIFO lane management</small></div><i>→</i><div><span>03</span><strong>Priority engine</strong><small>Rank each junction</small></div><i>→</i><div><span>04</span><strong>Signal control</strong><small>Green for highest priority</small></div></div></section>
+        </section>
+
+        <section class="view-panel" id="view-junctions">
+          <div class="page-heading"><div><p class="eyebrow">NETWORK MANAGEMENT</p><h1>Junctions</h1><p class="welcome-copy">Monitor traffic, waiting times, and signals across the network.</p></div><button class="button button-primary" data-open-add><span class="plus-icon">+</span> Add Junction</button></div>
+          <div class="junction-card-grid" id="junction-cards"></div>
+          <section class="panel junction-full-table"><div class="panel-heading"><div><h2>All Junctions</h2><p class="panel-subtitle">Live traffic status</p></div></div><div class="table-wrap"><table><thead><tr><th>Junction</th><th>Cars</th><th>Emergency</th><th>Wait (sec)</th><th>Congestion</th><th>Priority</th><th>Signal</th></tr></thead><tbody id="junction-full-body"></tbody></table></div></section>
+        </section>
+
+        <section class="view-panel" id="view-traffic">
+          <div class="page-heading"><div><p class="eyebrow">LIVE NETWORK MONITORING</p><h1>Traffic Data</h1><p class="welcome-copy">Inspect vehicle density, FIFO queues, and system events.</p></div><button class="button button-soft" id="traffic-sim-toggle"><span class="button-dot"></span> Start Simulation</button></div>
+          <div class="traffic-stat-row" id="traffic-stat-row"></div>
+          <div class="traffic-page-grid"><section class="panel traffic-page-chart"><div class="panel-heading"><div><h2>Vehicle density</h2><p class="panel-subtitle">Vehicles waiting at each junction</p></div></div><div class="large-bars" id="traffic-density-chart"></div></section>
+            <section class="panel traffic-page-chart"><div class="panel-heading"><div><h2>Waiting time</h2><p class="panel-subtitle">Average delay by junction</p></div></div><div class="large-bars waiting-bars" id="traffic-waiting-chart"></div></section>
+            <section class="panel traffic-page-queue"><div class="panel-heading"><div><h2>Vehicle Queue <span class="queue-junction" id="traffic-queue-junction">(J1)</span></h2><span class="fifo-pill">FIFO</span></div></div><div id="queue-visual" class="queue-visual"></div><div class="queue-controls"><button class="button button-small button-soft" id="traffic-enqueue">+ Enqueue vehicle</button><button class="button button-small button-outline" id="traffic-dequeue">Serve next</button><button class="button button-small button-outline" id="clear-queue">Clear queue</button></div><p class="queue-note">The oldest vehicle at the front of the queue is always served first.</p></section>
+            <section class="panel log-panel"><div class="panel-heading"><div><h2>System Activity Log</h2><p class="panel-subtitle">A record of adaptive network events</p></div></div><div id="full-activity-list" class="full-activity-list"></div></section>
+          </div>
+        </section>
+
+        <section class="view-panel" id="view-settings">
+          <div class="page-heading"><div><p class="eyebrow">SYSTEM PREFERENCES</p><h1>Settings</h1><p class="welcome-copy">Manage the demo simulation and review the project concepts.</p></div></div>
+          <div class="settings-grid">
+            <section class="panel settings-card"><div class="settings-icon blue-settings">◷</div><h2>Traffic simulation</h2><p>Start or pause automatic traffic updates. Cars and waiting times shift periodically, and the green signal follows the current top-priority junction.</p><button class="button button-primary" id="settings-sim-toggle">Start Simulation</button></section>
+            <section class="panel settings-card"><div class="settings-icon red-settings">✦</div><h2>Emergency vehicle</h2><p>Demonstrate emergency preemption by assigning an emergency vehicle to a selected junction.</p><button class="button button-emergency" data-open-emergency>Simulate emergency</button></section>
+            <section class="panel settings-card"><div class="settings-icon green-settings">↻</div><h2>Reset demo data</h2><p>Restore the original sample network and clear the system activity history.</p><button class="button button-outline" data-reset>Reset system</button></section>
+          </div>
+          <section class="panel data-structures-panel"><div class="panel-heading"><div><h2>Data Structures Used</h2><p class="panel-subtitle">Core concepts behind the project</p></div></div><div class="concept-grid"><article><span>FIFO</span><h3>Queue</h3><p>Vehicles waiting in a lane are served in first-in, first-out order.</p></article><article><span>PRIORITY</span><h3>Priority-based selection</h3><p>Each junction is ranked by emergencies, congestion, and waiting time.</p></article><article><span>GRAPH</span><h3>Road network</h3><p>Junctions are vertices and connecting roads are graph edges.</p></article><article><span>STRUCT</span><h3>Junction records</h3><p>Cars, emergency vehicles, waiting time, and priority are stored together.</p></article></div><div class="feature-list"><h3>Key Features</h3><div><span>Dynamic signal control</span><span>Emergency-vehicle priority</span><span>Congestion-based priority</span><span>Waiting-time-based priority</span><span>Reduced vehicle delay</span><span>Multiple junction support</span><span>Real-time traffic adaptation</span><span>Queue management</span><span>Priority-based selection</span></div></div></section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog class="app-dialog" id="add-junction-dialog">
+    <form id="add-junction-form" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow">NETWORK MANAGEMENT</p><h2>Add a junction</h2><p>Enter traffic data to connect a new junction to the network.</p></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close dialog">×</button></div>
+      <label>Junction name / ID<input name="name" required maxlength="24" placeholder="e.g. J5 or Central" autocomplete="off"></label>
+      <div class="form-row"><label>Number of cars<input name="cars" type="number" min="0" max="9999" value="25" required></label><label>Emergency vehicles<input name="emergency" type="number" min="0" max="999" value="0" required></label></div>
+      <label>Waiting time (seconds)<input name="wait" type="number" min="0" max="3600" value="15" required></label>
+      <p class="form-error" id="add-form-error" role="alert"></p>
+      <div class="dialog-actions"><button class="button button-outline" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Add Junction</button></div>
+    </form>
+  </dialog>
+  <dialog class="app-dialog emergency-dialog" id="emergency-dialog">
+    <form id="emergency-form" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow emergency-eyebrow">EMERGENCY PREEMPTION</p><h2>Simulate emergency</h2><p>The selected junction will receive an emergency vehicle and priority green.</p></div><button class="dialog-close" type="button" data-close-dialog aria-label="Close dialog">×</button></div>
+      <label>Select junction<select name="junction" id="emergency-junction"></select></label>
+      <div class="dialog-actions"><button class="button button-outline" type="button" data-close-dialog>Cancel</button><button class="button button-emergency" type="submit">✦ Detect emergency</button></div>
+    </form>
+  </dialog>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
